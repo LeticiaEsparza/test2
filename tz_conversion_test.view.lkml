@@ -18,7 +18,7 @@ view: tz_conversion_test {
     timeframes: [date, time,raw,time_of_day]
     datatype: epoch
     sql: ${TABLE}.test_tz;;
-    convert_tz: no
+
     }
 
 

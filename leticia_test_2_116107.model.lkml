@@ -65,7 +65,6 @@ explore: orders {
 
 explore: products {}
 
-explore: tz_conversion_test {}
 explore: schema_migrations {}
 
 explore: user_data {
@@ -79,3 +78,5 @@ explore: user_data {
 explore: users {}
 
 explore: users_nn {}
+
+explore: tz_conversion_test {}

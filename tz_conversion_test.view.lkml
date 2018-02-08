@@ -1,24 +1,31 @@
 view: tz_conversion_test {
   derived_table: {
     sql:
-          SELECT  2018-02-08 03:57:38 +0000::timestamp  as time UNION ALL
-          SELECT  2018-02-08 03:57:26 +0000::timestamp  as time UNION ALL
-          SELECT  2018-02-08 03:56:24 +0000::timestamp  as time UNION ALL
-          SELECT  2018-02-08 03:55:39 +0000::timestamp  as time UNION ALL
-          SELECT  2018-02-08 03:55:37 +0000::timestamp  as time
+           SELECT  CURDATE()::timestamp  as time UNION ALL
+           SELECT  2018-02-08 03:57:26 +0000::timestamp  as time UNION ALL
+           SELECT  2018-02-08 03:56:24 +0000::timestamp  as time UNION ALL
+           SELECT  2018-02-08 03:55:39 +0000::timestamp  as time UNION ALL
+           SELECT  2018-02-08 03:55:37 +0000::timestamp  as time
 
     ;;
 
 
   }
 
-dimension: time {
-  type: date_time
-  datatype: timestamp
+dimension:  time {
+  type: date_raw
 }
+
+#   dimension_group: test_tz {
+#     type: time
+#     timeframes: [date,raw]
+#     datatype: timestamp
+#     sql: ${test_tz_raw} ;;}
 
 
  }
+
+
 
 
 # UTC is 8 hours from us and CST  is 2 hours from us

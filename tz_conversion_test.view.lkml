@@ -1,11 +1,11 @@
 view: tz_conversion_test {
   derived_table: {
     sql:
-           SELECT  cast(CURDATE()) as timestamp  as test_tz UNION ALL
-           SELECT  cast(2018-02-08 03:57:26 +0000) as timestamp  as test_tz UNION ALL
-           SELECT  cast(2018-02-08 03:56:24 +0000) as timestamp  as test_tz UNION ALL
-           SELECT  cast(2018-02-08 03:55:39 +0000) as timestamp  as test_tz UNION ALL
-           SELECT  cast(2018-02-08 03:55:37 +0000) as timestamp  as test_tz
+           SELECT  cast(CURDATE() as timestamp)  as test_tz UNION ALL
+           SELECT  cast(2018-02-08 03:57:26 +0000 as timestamp)  as test_tz UNION ALL
+           SELECT  cast(2018-02-08 03:56:24 +0000 as timestamp)  as test_tz UNION ALL
+           SELECT  cast(2018-02-08 03:55:39 +0000 as timestamp)  as test_tz UNION ALL
+           SELECT  cast(2018-02-08 03:55:37 +0000 as timestamp)  as test_tz
 
     ;;
 

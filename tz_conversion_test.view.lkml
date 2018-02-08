@@ -1,26 +1,24 @@
 view: tz_conversion_test {
   derived_table: {
     sql:
-           SELECT  CURDATE()::timestamp  as time UNION ALL
-           SELECT  2018-02-08 03:57:26 +0000::timestamp  as time UNION ALL
-           SELECT  2018-02-08 03:56:24 +0000::timestamp  as time UNION ALL
-           SELECT  2018-02-08 03:55:39 +0000::timestamp  as time UNION ALL
-           SELECT  2018-02-08 03:55:37 +0000::timestamp  as time
+           SELECT  CURDATE()::timestamp  as test_tz UNION ALL
+           SELECT  2018-02-08 03:57:26 +0000::timestamp  as test_tz UNION ALL
+           SELECT  2018-02-08 03:56:24 +0000::timestamp  as test_tz UNION ALL
+           SELECT  2018-02-08 03:55:39 +0000::timestamp  as test_tz UNION ALL
+           SELECT  2018-02-08 03:55:37 +0000::timestamp  as test_tz
 
     ;;
 
 
   }
 
-dimension:  time {
-  type: date_raw
-}
 
-#   dimension_group: test_tz {
-#     type: time
-#     timeframes: [date,raw]
-#     datatype: timestamp
-#     sql: ${test_tz_raw} ;;}
+  dimension_group: test_tz {
+    type: time
+    timeframes: [date,raw]
+    datatype: timestamp
+    sql: ${TABLE}.test_tz ;;
+    }
 
 
  }
@@ -31,25 +29,3 @@ dimension:  time {
 # UTC is 8 hours from us and CST  is 2 hours from us
 # CST is 6 hours earlier than UTC
 # AT TIME ZONE 'America/Chicago' corrects the timestamp from UTC to CST
-
-
-# view: value_format {
-#   derived_table: {
-#     sql:
-#           select 123213213 as num union all
-#           select 123213 as num union all
-#           select 12323213123 as num union all
-#           select 1232 as num
-#         ;;
-#   }
-#   dimension: num {
-#     type: number
-#     value_format: "$#.00;($#.00)"
-#   }
-#   measure: sum {
-#     type: sum
-#     sql: ${num} ;;
-#     value_format: "$#.00;($#.00)"
-#   }
-# }
-# ::timestamp
